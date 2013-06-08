@@ -55,6 +55,7 @@ bool settings_load(Settings *setfile)
 			settings->show_fps = true;
 		#else
 			input_set_mappings(settings->input_mappings);
+			input_set_button_mappings(settings->input_button_mappings);
 		#endif
 	}
 	
@@ -108,6 +109,8 @@ FILE *fp;
 	
 	for(int i=0;i<INPUT_COUNT;i++)
 		setfile->input_mappings[i] = input_get_mapping(i);
+	for(int i=0;i<BUTTON_COUNT;i++)
+		setfile->input_button_mappings[i] = input_get_button_mapping(i);
 	
 	setfile->version = SETTINGS_VERSION;
 	fwrite(setfile, sizeof(Settings), 1, fp);

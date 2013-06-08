@@ -3,10 +3,12 @@
 #include "input.fdh"
 
 uint8_t mappings[SDLK_LAST];
+Uint8 button_mappings[6];
 
 bool inputs[INPUT_COUNT];
 bool lastinputs[INPUT_COUNT];
 int last_sdl_key;
+SDL_Event *event;
 
 bool input_init(void)
 {
@@ -64,6 +66,15 @@ bool input_init(void)
 		mappings[SDLK_v] = DEBUG_FLY_KEY;
 	}
 	#endif
+	button_mappings[JUMPBUTTON] = JUMPBUTTON;
+	button_mappings[FIREBUTTON] = FIREBUTTON;
+	button_mappings[PREVWPNBUTTON] = PREVWPNBUTTON;
+	button_mappings[NEXTWPNBUTTON] = NEXTWPNBUTTON;
+	button_mappings[INVENTORYBUTTON] = INVENTORYBUTTON;
+	button_mappings[MAPSYSTEMBUTTON] = MAPSYSTEMBUTTON;
+	if(SDL_NumJoysticks() > 0)
+		SDL_JoystickOpen(0);
+	event = NULL;
 	
 	return 0;
 }
@@ -79,6 +90,12 @@ void input_remap(int keyindex, int sdl_key)
 	
 	mappings[sdl_key] = keyindex;
 }
+void input_button_remap(int buttonindex)
+{
+	button_mappings[buttonindex] = button_mappings[buttonindex] + 1;
+	if(button_mappings[buttonindex] >= BUTTON_COUNT)
+		button_mappings[buttonindex] = 0;
+}
 
 // get which SDL key triggers a given input
 int input_get_mapping(int keyindex)
@@ -92,6 +109,20 @@ int i;
 	}
 	
 	return -1;
+}
+int input_get_button_mapping(int index)
+{
+	return button_mappings[index];
+}
+const char *input_get_button_name(int index)
+{
+	static const char *button_names[] =
+	{
+		"button 0","button 1","button 2","button 3","button 4","button 5"
+	};
+	if (index < 0 || index >= BUTTON_COUNT)
+		return "invalid";
+	return button_names[index];
 }
 
 const char *input_get_name(int index)
@@ -118,11 +149,31 @@ void input_set_mappings(int *array)
 	for(int i=0;i<INPUT_COUNT;i++)
 		mappings[array[i]] = i;
 }
+void input_set_button_mappings(int *array)
+{
+	memset(button_mappings, 0xff, sizeof(button_mappings));
+	for(int i=0;i<BUTTON_COUNT;i++)
+		button_mappings[array[i]] = i;
+}
 
 /*
 void c------------------------------() {}
 */
 
+void input_push_event(Uint8 type, int mapping)
+{
+	if(event != NULL)
+	{
+		free(event);
+		event = NULL;
+	}
+	event = (SDL_Event*) malloc(sizeof(SDL_Event));
+	if(event == NULL)
+		return;
+	event->type = type;
+	event->key.keysym.sym = (SDLKey) mapping;
+	SDL_PushEvent(event);
+}
 void input_poll(void)
 {
 SDL_Event evt;
@@ -132,6 +183,66 @@ int ino, key;
 	{
 		switch(evt.type)
 		{
+			case SDL_JOYAXISMOTION:
+			{
+				if(evt.jaxis.axis == 0) 
+				{
+					if(evt.jaxis.value == 32767)
+						input_push_event(SDL_KEYDOWN, input_get_mapping(RIGHTKEY));
+					else if(evt.jaxis.value == -32767)
+						input_push_event(SDL_KEYDOWN, input_get_mapping(LEFTKEY));
+					else
+					{
+						input_push_event(SDL_KEYUP, input_get_mapping(RIGHTKEY));
+						input_push_event(SDL_KEYUP, input_get_mapping(LEFTKEY));
+					}
+				}
+				else if(evt.jaxis.axis == 1)
+				{
+					if(evt.jaxis.value == 32767)
+						input_push_event(SDL_KEYDOWN, input_get_mapping(DOWNKEY));
+					else if(evt.jaxis.value == -32767)
+						input_push_event(SDL_KEYDOWN, input_get_mapping(UPKEY));
+					else
+					{
+						input_push_event(SDL_KEYUP, input_get_mapping(DOWNKEY));
+						input_push_event(SDL_KEYUP, input_get_mapping(UPKEY));
+					}
+				}
+			}
+			break;
+			case SDL_JOYBUTTONDOWN:
+			{
+				if(evt.jbutton.button == input_get_button_mapping(JUMPBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(JUMPKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(FIREBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(FIREKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(PREVWPNBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(PREVWPNKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(NEXTWPNBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(NEXTWPNKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(INVENTORYBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(INVENTORYKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(MAPSYSTEMBUTTON))
+					input_push_event(SDL_KEYDOWN, input_get_mapping(MAPSYSTEMKEY));
+			}
+			break;
+			case SDL_JOYBUTTONUP:
+			{
+				if(evt.jbutton.button == input_get_button_mapping(JUMPBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(JUMPKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(FIREBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(FIREKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(PREVWPNBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(PREVWPNKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(NEXTWPNBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(NEXTWPNKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(INVENTORYBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(INVENTORYKEY));
+				else if(evt.jbutton.button == input_get_button_mapping(MAPSYSTEMBUTTON))
+					input_push_event(SDL_KEYUP, input_get_mapping(MAPSYSTEMKEY));
+			}
+			break;
 			case SDL_KEYDOWN:
 			case SDL_KEYUP:
 			{
