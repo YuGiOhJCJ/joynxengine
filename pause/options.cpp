@@ -129,6 +129,7 @@ Dialog *dlg = opt.dlg;
 	
 	dlg->AddItem("Resolution: ", _res_change, _res_get);
 	dlg->AddItem("Controls", EnterControlsMenu);
+	dlg->AddItem("Joystick", EnterJoystickMenu);
 	dlg->AddItem("Replay", EnterReplayMenu);
 	
 	dlg->AddSeparator();
@@ -436,6 +437,29 @@ int i;
 	opt.dlg->Refresh();
 }
 
+static void EnterJoystickMenu(ODItem *item, int dir)
+{
+	Dialog *dlg = opt.dlg;
+	dlg->Clear();
+	sound(SND_MENU_MOVE);
+	dlg->AddItem("Jump", _edit_button, _upd_button, JUMPBUTTON);
+	dlg->AddItem("Fire", _edit_button, _upd_button, FIREBUTTON);
+	dlg->AddItem("Wpn Prev", _edit_button, _upd_button, PREVWPNBUTTON);
+	dlg->AddItem("Wpn Next", _edit_button, _upd_button, NEXTWPNBUTTON);
+	dlg->AddItem("Inventory", _edit_button, _upd_button, INVENTORYBUTTON);
+	dlg->AddItem("Map", _edit_button, _upd_button, MAPSYSTEMBUTTON);
+	dlg->AddSeparator();
+	dlg->AddDismissalItem();
+}
+static void _upd_button(ODItem *item)
+{
+	maxcpy(item->righttext, input_get_button_name(input_get_button_mapping(item->id)), sizeof(item->righttext) - 1);
+}
+static void _edit_button(ODItem *item, int dir)
+{
+	input_button_remap(item->id);
+	sound(SND_DOOR);
+}
 
 
 

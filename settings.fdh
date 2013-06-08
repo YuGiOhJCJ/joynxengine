@@ -20,6 +20,8 @@ FILE *fileopen(const char *fname, const char *mode);
 //-------------------[referenced from settings.cpp]------------------//
 void input_set_mappings(int *array);
 int input_get_mapping(int keyindex);
+void input_set_button_mappings(int *array);
+int input_get_button_mapping(int index);
 
 
 /* located in common/stat.cpp */

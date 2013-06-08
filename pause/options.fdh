@@ -26,6 +26,9 @@ bool justpushed(int k);
 int input_get_mapping(int keyindex);
 const char *input_get_name(int index);
 void input_remap(int keyindex, int sdl_key);
+int input_get_button_mapping(int index);
+const char *input_get_button_name(int index);
+void input_button_remap(int buttonindex);
 
 
 /* located in replay.cpp */
@@ -59,8 +62,11 @@ void EnterReplaySubmenu(ODItem *item, int dir);
 void _keep_replay(ODItem *item, int dir);
 void _play_replay(ODItem *item, int dir);
 static void EnterControlsMenu(ODItem *item, int dir);
+static void EnterJoystickMenu(ODItem *item, int dir);
 static void _upd_control(ODItem *item);
 static void _edit_control(ODItem *item, int dir);
+static void _upd_button(ODItem *item);
+static void _edit_button(ODItem *item, int dir);
 static void _finish_control_edit(Message *msg);
 
 

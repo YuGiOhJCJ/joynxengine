@@ -1,0 +1,33 @@
+JoyNXEngine
+
+Table of contents
+1. About
+2. Install
+3. Use
+
+1. About
+ JoyNXEngine [1] is a clone of the Cave Story video game with a joystick feature.
+ It exists a video game called Cave Story (also known as Doukutsu Monogatar) [2].
+ An open source clone called NXEngine [3] has been written.
+ Unfortunately, this clone does not support the joystick whereas this game is suited to be played with a joystick.
+ So, JoyNXEngine has been written to resolve this problem.
+ For the list of authors, see the AUTHORS file.
+ For the list of changes, see the ChangeLog file.
+ For the list of things to do, see the TODO file.
+ For the license, see the LICENSE file.
+
+2. Install
+ Download the original Cave Story video game (version 1.0.0.6).
+ Use the Aeon Genesis patch [4] to translate the game in English.
+ Copy the "data" directory and the "Doukutsu.exe" file in the JoyNXEngine directory.
+ Type:
+ $ make
+ $ ./nx
+
+3. Use
+  The menu can be opened using the "F3" key.
+
+[1] https://yugiohjcj.1s.fr/
+[2] http://hp.vector.co.jp/
+[3] http://nxengine.sourceforge.net/
+[4] http://agtp.romhack.net/project.php?id=cavestory

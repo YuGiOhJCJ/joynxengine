@@ -27,6 +27,7 @@ struct Settings
 	int reserved[8];
 	
 	int input_mappings[INPUT_COUNT];
+	int input_button_mappings[BUTTON_COUNT];
 };
 
 bool settings_load(Settings *settings=NULL);

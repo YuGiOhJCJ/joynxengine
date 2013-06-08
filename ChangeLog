@@ -1,0 +1,57 @@
+2013-06-08  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* AUTHORS: Added file (contains the list of authors).
+
+	* ChangeLog: Added file (contains the list of changes).
+
+	* TODO: Added file (contains the list of things to do).
+
+	* README: Added file (contains information about JoyNXEngine).
+
+	* input.cpp(input_poll): Modified file (the function handles the joystick events).
+
+	* input.cpp(input_push_event): Modified file (new function to push an event).
+
+	* input.cpp(input_set_button_mappings): Modified file (new function to set a button mappings).
+
+	* input.cpp(input_get_button_name): Modified file (new function to get a button name).
+
+	* input.cpp(input_get_button_mapping): Modified file (new function to get a button mapping).
+
+	* input.cpp(input_button_remap): Modified file (new function to remap a button).
+
+	* input.cpp(input_init): Modified file (the function sets the default button mappings).
+
+	* input.h: Modified file (add the 'BUTTONS' enumeration).
+
+	* main.cpp(main): Modified file (the function initializes SDL with the 'SDL_INIT_JOYSTICK' flag).
+
+	* pause/options.cpp(EnterMainMenu): Modified file (add the 'Joystick' item to the main menu).
+
+	* pause/options.cpp(EnterJoystickMenu): Modified file (new function to show the joystick menu).
+
+	* pause/options.cpp(_upd_button): Modified file (new function to update the joystick menu).
+
+	* pause/options.cpp(_edit_button): Modified file (new function to edit the joystick menu).
+
+	* pause/options.fdh: Modified file (add the 'EnterJoystickMenu' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the '_upd_button' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the '_edit_button' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the 'input_get_button_mapping' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the 'input_get_button_name' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the 'input_button_remap' function to the referenced functions).
+
+	* settings.cpp(settings_load): Modified file (the function loads the joystick settings).
+
+	* settings.cpp(settings_save): Modified file (the function saves the joystick settings).
+
+	* settings.fdh: Modified file (add the 'input_set_button_mappings' function to the referenced functions).
+
+	* settings.fdh: Modified file (add the 'input_get_button_mapping' function to the referenced functions).
+
+	* settings.h: Modified file (add the joystick settings to the 'Settings' structure).
