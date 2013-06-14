@@ -32,6 +32,7 @@ bool settings_load(Settings *setfile)
 		setfile->enable_debug_keys = false;
 		setfile->sound_enabled = true;
 		setfile->music_enabled = 1;	// both Boss and Regular music
+		setfile->volume = SDL_MIX_MAXVOLUME;
 		
 		setfile->instant_quit = false;
 		setfile->emulate_bugs = false;

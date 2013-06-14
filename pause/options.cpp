@@ -6,6 +6,7 @@
 #include "message.h"
 using namespace Options;
 #include "options.fdh"
+#include "../sound/sslib.h"                     // for SS_NUM_CHANNELS
 FocusStack optionstack;
 
 #define SLIDE_SPEED				32
@@ -141,6 +142,7 @@ Dialog *dlg = opt.dlg;
 	
 	dlg->AddItem("Music: ", _music_change, _music_get);
 	dlg->AddItem("Sound: ", _sound_change, _sound_get);
+	dlg->AddItem("Volume: ", _volume_change, _volume_get);
 	
 	dlg->AddSeparator();
 	dlg->AddDismissalItem();
@@ -257,6 +259,23 @@ void _music_get(ODItem *item)
 {
 	static const char *strs[] = { "Off", "On", "Boss Only" };
 	strcpy(item->suffix, strs[settings->music_enabled]);
+}
+void _volume_change(ODItem *item, int dir)
+{
+	settings->volume = settings->volume + dir;
+	if(settings->volume > SDL_MIX_MAXVOLUME)
+		settings->volume = SDL_MIX_MAXVOLUME;
+	if(settings->volume < 0)
+		settings->volume = 0;
+	for(int i=0;i<SS_NUM_CHANNELS;i++)
+		SSSetVolume(i, settings->volume);
+	sound(SND_MENU_SELECT);
+}
+void _volume_get(ODItem *item)
+{
+	char str[4];
+	sprintf(str, "%d", settings->volume);
+	strcpy(item->suffix, str);
 }
 
 /*

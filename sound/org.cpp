@@ -11,6 +11,7 @@
 #include "pxt.h"			// for loading drums
 #include "sslib.h"			// SAMPLE_RATE
 #include "org.fdh"
+#include "../settings.h"                // for settings->volume
 
 //#define QUIET
 #define DRUM_PXT
@@ -515,6 +516,7 @@ bool org_start(int startbeat)
 	generate_music();
 	queue_final_buffer();
 	buffers_full = 0;				// tell org_run to generate the other buffer right away
+	org_set_volume(settings->volume);
 	
 	return 0;
 }

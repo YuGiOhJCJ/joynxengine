@@ -1,3 +1,25 @@
+2013-06-14  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* sound/sslib.h: Modified file (add the 'SSSetVolume' function).
+
+	* sound/org.cpp(org_start): Modified file (the function sets the volume using the volume settings).
+
+	* settings.h: Modified file (add the volume settings to the 'Settings' structure).
+
+	* settings.cpp(settings_load): Modified file (the function loads the volume settings).
+
+	* pause/options.fdh: Modified file (add the '_volume_change' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the '_volume_get' function to the referenced functions).
+
+	* pause/options.fdh: Modified file (add the 'org_set_volume' function to the referenced functions).
+
+	* pause/options.cpp(_volume_change): Modified file (new function to change the volume from the menu).
+
+	* pause/options.cpp(_volume_get): Modified file (new function to get the volume for the menu).
+
+	* pause/options.cpp(EnterMainMenu): Modified file (add the 'Volume' item to the main menu).
+
 2013-06-08  YuGiOhJCJ  <yugiohjcj@1s.fr>
 
 	* AUTHORS: Added file (contains the list of authors).
