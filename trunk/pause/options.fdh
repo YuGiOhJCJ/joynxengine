@@ -56,6 +56,8 @@ void _sound_change(ODItem *item, int dir);
 void _sound_get(ODItem *item);
 void _music_change(ODItem *item, int dir);
 void _music_get(ODItem *item);
+void _volume_change(ODItem *item, int dir);
+void _volume_get(ODItem *item);
 static void EnterReplayMenu(ODItem *item, int dir);
 void _upd_replay(ODItem *item);
 void EnterReplaySubmenu(ODItem *item, int dir);
@@ -75,6 +77,7 @@ static void _finish_control_edit(Message *msg);
 //-----------------[referenced from pause/options.cpp]---------------//
 void sound(int snd);
 void music_set_enabled(int newstate);
+void org_set_volume(int newvolume);
 
 
 /* located in common/misc.cpp */

@@ -17,6 +17,7 @@ struct Settings
 	bool enable_debug_keys;
 	bool sound_enabled;
 	int music_enabled;
+	int volume;
 	
 	bool instant_quit;
 	bool emulate_bugs;

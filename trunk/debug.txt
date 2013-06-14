@@ -23,7 +23,7 @@ safemode print: 'If you haven't done that yet, please press ESCAPE now'
 safemode print: 'and come back in a moment. Otherwise, you can'
 safemode print: 'press any other key to start the extraction.'
 run_until_key()
-returning key 13
+returning key 97
 safemode print: '= Extracting Files ='
 safemode print: '[ pxt/fx01.pxt ]'
 safemode print: '[ pxt/fx02.pxt ]'
@@ -184,7 +184,7 @@ safemode print: 'to adjust your resolution by pressing F3.'
 safemode print: ''
 safemode print: 'Press any key to begin'
 run_until_key()
-returning key 122
+returning key 97
 Writing settings...
 sslib: initilization was successful.
 Loading Sound FX...
@@ -246,7 +246,7 @@ tsc_load: loading 'data/Head.tsc' to page 0
 tsc_load: loading 'data/ArmsItem.tsc' to page 2
 tsc_load: loading 'data/StageSelect.tsc' to page 3
 Reading npc.tbl...
-InitList::CallFunctions(007391a0): executing 61 functions...
+InitList::CallFunctions(08145360): executing 61 functions...
 initslopetable: generating slopetables.
 initmapfirsttime: loading tilekey.dat.
 Setting tick function to type 1 param 0
@@ -265,6 +265,291 @@ StageBossManager::SetType(0)
 0100:1  0032 <MNA 
 0100:2   0050
 0100:5   0001
-Setting pause: type 8 param 0
+0100:8  TEXT  '\n'
+0100:11   0000
+ANP: Obj 09a4a658 (OBJ_INTRO_DOCTOR(298)): setting state: 10 and dir: LEFT
+0100:18   0097
+0100:21  TEXT  '\n'
+0100:24   0000
+ANP: Obj 09a4a658 (OBJ_INTRO_DOCTOR(298)): setting state: 1 and dir: LEFT
+0100:31   0050
+  - Stopped script 0100
+Setting tick function to type 7 param 0
+niku_load: couldn't open file '290.rec'
+ >> music(24)
+./org/theme.org: Org-02 detected
+ >> Entering stage 0: 'Null'.
+load_map: level size 21x20
+load_map: 'data/Stage/0.pxm' loaded OK! - 21x20
+load_pxa: reading in data/Stage/0.pxa
+load_entities: reading in data/Stage/0.pxe
+tsc_load: loading 'data/Stage/0.tsc' to page 1
+StageBossManager::SetType(0)
+Setting pause: type 9 param 0
+Setting pause: type 0 param 0
+Writing settings...
+ >> music(0)
 Setting tick function to type 1 param 0
+= Beginning new game =
+ >> Entering stage 13: 'Start Point'.
+load_map: level size 21x16
+load_map: 'data/Stage/Start.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Start.pxe
+tsc_load: loading 'data/Stage/Start.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 200
+  - Started script 0200
+0200:0  002c <KEY 
+0200:1   0091
+0200:6  003f <PRI 
+0200:7   0000
+0200:10  0039 <MSG 
+0200:11  TEXT  '\nFrom somewhere, a transmission...'
+0200:47  003d <NOD 
+0200:48  0009 <CLO 
+0200:49   0430
+0200:52   0000
+******* Executing <TRA to stage 18
+  - Stopped script 0200
+ >> Entering stage 18: 'Shelter'.
+load_map: level size 21x16
+load_map: 'data/Stage/Shelt.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Store.pxa
+load_entities: reading in data/Stage/Shelt.pxe
+tsc_load: loading 'data/Stage/Shelt.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 500
+  - Started script 0500
+0500:0  002c <KEY 
+0500:1   0021
+ >> music(21)
+./org/access.org: Org-02 detected
+0500:4   0004
+0500:7  TEXT  '\n'
+0500:10  0039 <MSG 
+0500:11  0053 <TUR 
+0500:12  TEXT  'Connecting to network...'
+0500:38   0050
+0500:41  TEXT  '\n'
+0500:44  0053 <TUR 
+0500:45  TEXT  'Logged on.'
+0500:57   0050
+0500:60  TEXT  '\n'
+0500:63  0053 <TUR 
+0500:64  TEXT  'Executing chat algorithm.'
+0500:91   0100
+0500:94  000a <CLR 
+0500:95  0039 <MSG 
+0500:96  TEXT  'Sue?'
+0500:102  003d <NOD 
+0500:103  TEXT  '\nYou there?'
+0500:116  003d <NOD 
+0500:117  TEXT  '\nIt's me.'
+0500:128  003d <NOD 
+0500:129  TEXT  '\nKazuma!'
+0500:139  003d <NOD 
+0500:140  TEXT  '\nI managed to get away somehow,\nbut I've gotten lost...'
+0500:197  003d <NOD 
+0500:198  TEXT  '\nI've found a shelter, but there's\nnothing here.'
+0500:248  003d <NOD 
+0500:249  TEXT  '\nIf you can hear me,\nplease answer!'
+0500:286  003d <NOD 
+0500:287  000a <CLR 
+0500:288  TEXT  '...Please?'
+0500:300  003d <NOD 
+0500:301  TEXT  '\n'
+0500:304   0004
+0500:307   0005
+0500:310   0008
+******* Executing <TRA to stage 13
+  - Stopped script 0500
+ >> Entering stage 13: 'Start Point'.
+load_map: level size 21x16
+load_map: 'data/Stage/Start.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Start.pxe
+ -- Disappearing object 200 ([Type 0]) because flag 430 is set
+tsc_load: loading 'data/Stage/Start.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 91
+  - Started script 0091
+0091:0  0032 <MNA 
+0091:1   0008
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0091:4   0001
+0091:7  0014 <END 
+  - Stopped script 0091
+  - Started script 0100
+0100:0  003f <PRI 
+0100:1   0000
+CNP: Obj 0956fd48 changing from OBJ_DOOR(18) to [Type 0], new dir = LEFT
+0100:8  TEXT  '\n'
+0100:11   0011
+0100:14   0001
+0100:17  TEXT  '\n'
+0100:20   0011
+******* Executing <TRA to stage 12
+  - Stopped script 0100
+ >> Entering stage 12: 'First Cave'.
+load_map: level size 60x45
+load_map: 'data/Stage/Cave.pxm' loaded OK! - 60x45
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Cave.pxe
+onspawn_spike_small: spike 09c874a0 embedded in wall, deleting
+onspawn_spike_small: spike 09c875b8 embedded in wall, deleting
+tsc_load: loading 'data/Stage/Cave.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 91
+  - Started script 0091
+0091:0  0032 <MNA 
+0091:1   0008
+0091:4   0001
+0091:7  0014 <END 
+  - Stopped script 0091
+  - Started script 0400
+0400:0  003f <PRI 
+0400:1   0022
+0400:4   0400
+DNP: 09a153b0 (OBJ_LIFE_CAPSULE(32)) deleted
+0400:7   0016
+ >> music(16)
+./org/fanfale3.org: Org-02 detected
+0400:10  TEXT  '\n'
+0400:13  0039 <MSG 
+0400:14   1006
+0400:17  TEXT  'Got a =Life Capsule=!'
+0400:40   0160
+0400:43  003d <NOD 
+0400:44  0042 <RMU 
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0400:45   0003
+0400:48  TEXT  '\nMax health increased by 3!'
+0400:77  003d <NOD 
+0400:78  0014 <END 
+  - Stopped script 0400
+  - Started script 0110
+0110:0  002c <KEY 
+0110:1   0004
+0110:4   0009
+******* Executing <TRA to stage 90
+  - Stopped script 0110
+ >> Entering stage 90: 'Hermit Gunsmith'.
+load_map: level size 21x16
+load_map: 'data/Stage/Pole.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Pole.pxe
+tsc_load: loading 'data/Stage/Pole.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 92
+  - Started script 0092
+0092:0  0032 <MNA 
+0092:1   0008
+0092:4   0002
+0092:7  0014 <END 
+  - Stopped script 0092
+  - Started script 0300
+0300:0  002c <KEY 
+0300:1  0039 <MSG 
+0300:2  TEXT  '*snore*'
+0300:11  003d <NOD 
+0300:12  0014 <END 
+  - Stopped script 0300
+  - Started script 0200
+0200:0  002c <KEY 
+0200:1   0201
+0200:6   1640
+0200:9   0022
+0200:12   0000
+CNP: Obj 0956fd48 changing from OBJ_CHEST_CLOSED(15) to OBJ_CHEST_OPEN(21), new dir = LEFT
+0200:19  TEXT  '\n'
+0200:22  0039 <MSG 
+0200:23  TEXT  'Opened the chest.'
+0200:42  003d <NOD 
+0200:43   0002
+0200:46   0000
+0200:51  000a <CLR 
+0200:52  TEXT  '\n'
+0200:55   0010
+ >> music(10)
+./org/fanfale1.org: Org-02 detected
+0200:58  TEXT  'Got the =Polar Star=!'
+0200:81   0160
+0200:84  003d <NOD 
+0200:85   0000
+0200:88  0009 <CLO 
+0200:89  0042 <RMU 
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0200:90  TEXT  '\n'
+0200:93  0039 <MSG 
+0200:94  TEXT  '\nFrom somewhere, a transmission...'
+0200:130   0004
+0200:133  003d <NOD 
+0200:134   0000
+******* Executing <TRA to stage 18
+  - Stopped script 0200
+ >> Entering stage 18: 'Shelter'.
+load_map: level size 21x16
+load_map: 'data/Stage/Shelt.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Store.pxa
+load_entities: reading in data/Stage/Shelt.pxe
+tsc_load: loading 'data/Stage/Shelt.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 501
+  - Started script 0501
+0501:0  002c <KEY 
+0501:1  0026 <HMC 
+0501:2   0021
+ >> music(21)
+./org/access.org: Org-02 detected
+0501:5   0004
+0501:8  TEXT  '\n'
+0501:11  0039 <MSG 
+0501:12  0053 <TUR 
+0501:13  TEXT  'Searching for user "Sue"...'
+0501:42   0150
+0501:45  000a <CLR 
+0501:46  0053 <TUR 
+0501:47  TEXT  '1 user "Sue" found.'
+0501:68   0150
+0501:71  000a <CLR 
+0501:72  0039 <MSG 
+0501:73  TEXT  'Sue!'
+0501:79  003d <NOD 
+0501:80  TEXT  '\nPlease respond!'
+0501:98  003d <NOD 
+0501:99  TEXT  '\nThey're looking for you...'
+0501:128  003d <NOD 
+0501:129  TEXT  '\nAre you asleep?'
+0501:147  003d <NOD 
+0501:148  TEXT  '\nYour brother is so lonely...'
+0501:179  003d <NOD 
+0501:180   0004
+0501:183  0049 <SMC 
+0501:184  0009 <CLO 
+0501:185  TEXT  '\n'
+0501:188   0009
+******* Executing <TRA to stage 90
+  - Stopped script 0501
+ >> Entering stage 90: 'Hermit Gunsmith'.
+load_map: level size 21x16
+load_map: 'data/Stage/Pole.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Pole.pxe
+ -- Disappearing object 200 (OBJ_CHEST_CLOSED(15)) because flag 1640 is set
+ -- Appearing object 201 (OBJ_CHEST_OPEN(21)) because flag 1640 is set
+tsc_load: loading 'data/Stage/Pole.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 95
+  - Started script 0095
+0095:0   0008
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0095:3   0001
+0095:6  0014 <END 
+  - Stopped script 0095
+Setting pause: type 8 param 0
 Graphics::Close()

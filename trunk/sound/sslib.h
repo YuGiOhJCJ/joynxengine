@@ -34,5 +34,6 @@ struct SSChannel
 	
 	void (*FinishedCB)(int channel, int chunkid);
 };
+void SSSetVolume(int c, int newvol);
 
 #endif
