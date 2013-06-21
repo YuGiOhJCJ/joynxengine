@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../common/basics.h"
+#include "../settings.h"                // for settings->volume
 
 #include "sslib.h"
 #include "sslib.fdh"
@@ -51,7 +52,7 @@ SDL_AudioSpec fmt, obtained;
 	// zero everything in all channels
 	memset(channel, 0, sizeof(channel));
 	for(int i=0;i<SS_NUM_CHANNELS;i++)
-		channel[i].volume = SDL_MIX_MAXVOLUME;
+		channel[i].volume = settings->volume;
 	
 	stat("sslib: initilization was successful.");
 	
