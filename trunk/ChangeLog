@@ -1,3 +1,7 @@
+2013-06-21  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* sound/sslib.cpp(SSInit): Modified file (initialize the sound volume using the volume settings).
+
 2013-06-14  YuGiOhJCJ  <yugiohjcj@1s.fr>
 
 	* sound/sslib.h: Modified file (add the 'SSSetVolume' function).
