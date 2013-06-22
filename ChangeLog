@@ -1,6 +1,22 @@
+2013-06-22  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* pause/options.fdh: Modified file (modify the 'input_button_remap' referenced function to add a directional parameter).
+
+	* pause/options.cpp(_edit_button): Modified file (the function calls 'input_button_remap' with a directional parameter).
+
+	* input.cpp(input_init): Modified file (the function initializes the button name).
+
+	* input.cpp(input_init): Modified file (the function initializes the number of buttons).
+
+	* input.cpp(input_button_remap): Modified file (the function takes a directional parameter in order to increase or decrease the value for the button mappings).
+
+	* input.cpp(input_get_button_name): Modified file (the function is able to create a name for all the buttons of the joystick).
+
+	* input.cpp(input_set_button_mappings): Modified file (the function is able to set the button mappings for all the buttons of the joystick).
+
 2013-06-21  YuGiOhJCJ  <yugiohjcj@1s.fr>
 
-	* sound/sslib.cpp(SSInit): Modified file (initialize the sound volume using the volume settings).
+	* sound/sslib.cpp(SSInit): Modified file (the function initializes the sound volume using the volume settings).
 
 2013-06-14  YuGiOhJCJ  <yugiohjcj@1s.fr>
 

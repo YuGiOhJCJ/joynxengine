@@ -476,7 +476,7 @@ static void _upd_button(ODItem *item)
 }
 static void _edit_button(ODItem *item, int dir)
 {
-	input_button_remap(item->id);
+	input_button_remap(item->id, dir);
 	sound(SND_DOOR);
 }
 

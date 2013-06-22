@@ -28,7 +28,7 @@ const char *input_get_name(int index);
 void input_remap(int keyindex, int sdl_key);
 int input_get_button_mapping(int index);
 const char *input_get_button_name(int index);
-void input_button_remap(int buttonindex);
+void input_button_remap(int buttonindex, int dir);
 
 
 /* located in replay.cpp */
