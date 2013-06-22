@@ -3,12 +3,14 @@
 #include "input.fdh"
 
 uint8_t mappings[SDLK_LAST];
-Uint8 button_mappings[6];
+Uint8 button_mappings[BUTTON_COUNT];
 
 bool inputs[INPUT_COUNT];
 bool lastinputs[INPUT_COUNT];
 int last_sdl_key;
 SDL_Event *event;
+int number_of_buttons;
+char button_name[7+4];
 
 bool input_init(void)
 {
@@ -72,9 +74,11 @@ bool input_init(void)
 	button_mappings[NEXTWPNBUTTON] = NEXTWPNBUTTON;
 	button_mappings[INVENTORYBUTTON] = INVENTORYBUTTON;
 	button_mappings[MAPSYSTEMBUTTON] = MAPSYSTEMBUTTON;
+	number_of_buttons = 0;
 	if(SDL_NumJoysticks() > 0)
-		SDL_JoystickOpen(0);
+		number_of_buttons = SDL_JoystickNumButtons(SDL_JoystickOpen(0));
 	event = NULL;
+	strcpy(button_name, "\0");
 	
 	return 0;
 }
@@ -90,11 +94,11 @@ void input_remap(int keyindex, int sdl_key)
 	
 	mappings[sdl_key] = keyindex;
 }
-void input_button_remap(int buttonindex)
+void input_button_remap(int buttonindex, int dir)
 {
-	button_mappings[buttonindex] = button_mappings[buttonindex] + 1;
-	if(button_mappings[buttonindex] >= BUTTON_COUNT)
-		button_mappings[buttonindex] = 0;
+	if((dir < 0 && button_mappings[buttonindex] <= 0) || (dir > 0 && button_mappings[buttonindex] >= number_of_buttons - 1))
+		return;
+	button_mappings[buttonindex] = button_mappings[buttonindex] + dir;
 }
 
 // get which SDL key triggers a given input
@@ -116,13 +120,8 @@ int input_get_button_mapping(int index)
 }
 const char *input_get_button_name(int index)
 {
-	static const char *button_names[] =
-	{
-		"button 0","button 1","button 2","button 3","button 4","button 5"
-	};
-	if (index < 0 || index >= BUTTON_COUNT)
-		return "invalid";
-	return button_names[index];
+	sprintf(button_name, "button %d", index);
+	return button_name;
 }
 
 const char *input_get_name(int index)
@@ -153,7 +152,7 @@ void input_set_button_mappings(int *array)
 {
 	memset(button_mappings, 0xff, sizeof(button_mappings));
 	for(int i=0;i<BUTTON_COUNT;i++)
-		button_mappings[array[i]] = i;
+		button_mappings[i] = array[i];
 }
 
 /*
