@@ -1,0 +1,555 @@
+Loading settings...
+Couldn't open file settings.dat.
+No saved settings; using defaults.
+videoinfo: desktop bpp 32
+Graphics::SetResolution(2)
+Setting scaling 2 and fullscreen=no
+SDL_SetVideoMode: 640x480 @ 32bpp
+Graphics::FlushAll()
+SIFLoader::LoadHeader: read index of 8 sections
+Loading SIF section 1 from address 004d
+Loading SIF section 2 from address 044c
+SIFSpritesSect: loading 490 sprites
+fonts: using truetype at 17pt
+safemode print: 'I need to extract some game data'
+safemode print: 'before I can start up for the first time.'
+safemode print: ''
+safemode print: 'Before beginning, you should have the Aeon Genesis'
+safemode print: 'English translation of version 1.0.0.6, and drop'
+safemode print: 'Doukutsu.exe and it's "data" directory into the same'
+safemode print: 'folder as the "nx" program you just ran.'
+safemode print: ''
+safemode print: 'If you haven't done that yet, please press ESCAPE now'
+safemode print: 'and come back in a moment. Otherwise, you can'
+safemode print: 'press any other key to start the extraction.'
+run_until_key()
+returning key 97
+safemode print: '= Extracting Files ='
+safemode print: '[ pxt/fx01.pxt ]'
+safemode print: '[ pxt/fx02.pxt ]'
+safemode print: '[ pxt/fx03.pxt ]'
+safemode print: '[ pxt/fx04.pxt ]'
+safemode print: '[ pxt/fx05.pxt ]'
+safemode print: '[ pxt/fx06.pxt ]'
+safemode print: '[ pxt/fx07.pxt ]'
+safemode print: '[ pxt/fx0b.pxt ]'
+safemode print: '[ pxt/fx0c.pxt ]'
+safemode print: '[ pxt/fx0e.pxt ]'
+safemode print: '[ pxt/fx0f.pxt ]'
+safemode print: '[ pxt/fx10.pxt ]'
+safemode print: '[ pxt/fx11.pxt ]'
+safemode print: '[ pxt/fx12.pxt ]'
+safemode print: '[ pxt/fx14.pxt ]'
+safemode print: '[ pxt/fx15.pxt ]'
+safemode print: '[ pxt/fx16.pxt ]'
+safemode print: '[ pxt/fx17.pxt ]'
+safemode print: '[ pxt/fx18.pxt ]'
+safemode print: '[ pxt/fx19.pxt ]'
+safemode print: '[ pxt/fx1a.pxt ]'
+safemode print: '[ pxt/fx1b.pxt ]'
+safemode print: '[ pxt/fx1c.pxt ]'
+safemode print: '[ pxt/fx1d.pxt ]'
+safemode print: '[ pxt/fx1e.pxt ]'
+safemode print: '[ pxt/fx1f.pxt ]'
+safemode print: '[ pxt/fx20.pxt ]'
+safemode print: '[ pxt/fx21.pxt ]'
+safemode print: '[ pxt/fx22.pxt ]'
+safemode print: '[ pxt/fx23.pxt ]'
+safemode print: '[ pxt/fx25.pxt ]'
+safemode print: '[ pxt/fx26.pxt ]'
+safemode print: '[ pxt/fx27.pxt ]'
+safemode print: '[ pxt/fx28.pxt ]'
+safemode print: '[ pxt/fx29.pxt ]'
+safemode print: '[ pxt/fx2a.pxt ]'
+safemode print: '[ pxt/fx2b.pxt ]'
+safemode print: '[ pxt/fx2c.pxt ]'
+safemode print: '[ pxt/fx2d.pxt ]'
+safemode print: '[ pxt/fx2e.pxt ]'
+safemode print: '[ pxt/fx2f.pxt ]'
+safemode print: '[ pxt/fx30.pxt ]'
+safemode print: '[ pxt/fx31.pxt ]'
+safemode print: '[ pxt/fx32.pxt ]'
+safemode print: '[ pxt/fx33.pxt ]'
+safemode print: '[ pxt/fx34.pxt ]'
+safemode print: '[ pxt/fx35.pxt ]'
+safemode print: '[ pxt/fx36.pxt ]'
+safemode print: '[ pxt/fx37.pxt ]'
+safemode print: '[ pxt/fx38.pxt ]'
+safemode print: '[ pxt/fx39.pxt ]'
+safemode print: '[ pxt/fx3a.pxt ]'
+safemode print: '[ pxt/fx3b.pxt ]'
+safemode print: '[ pxt/fx3c.pxt ]'
+safemode print: '[ pxt/fx3d.pxt ]'
+safemode print: '[ pxt/fx3e.pxt ]'
+safemode print: '[ pxt/fx3f.pxt ]'
+safemode print: '[ pxt/fx40.pxt ]'
+safemode print: '[ pxt/fx41.pxt ]'
+safemode print: '[ pxt/fx46.pxt ]'
+safemode print: '[ pxt/fx47.pxt ]'
+safemode print: '[ pxt/fx48.pxt ]'
+safemode print: '[ pxt/fx64.pxt ]'
+safemode print: '[ pxt/fx65.pxt ]'
+safemode print: '[ pxt/fx66.pxt ]'
+safemode print: '[ pxt/fx67.pxt ]'
+safemode print: '[ pxt/fx68.pxt ]'
+safemode print: '[ pxt/fx68.pxt ]'
+safemode print: '[ pxt/fx69.pxt ]'
+safemode print: '[ pxt/fx6a.pxt ]'
+safemode print: '[ pxt/fx6b.pxt ]'
+safemode print: '[ pxt/fx6c.pxt ]'
+safemode print: '[ pxt/fx6d.pxt ]'
+safemode print: '[ pxt/fx6e.pxt ]'
+safemode print: '[ pxt/fx6f.pxt ]'
+safemode print: '[ pxt/fx70.pxt ]'
+safemode print: '[ pxt/fx71.pxt ]'
+safemode print: '[ pxt/fx72.pxt ]'
+safemode print: '[ pxt/fx73.pxt ]'
+safemode print: '[ pxt/fx74.pxt ]'
+safemode print: '[ pxt/fx75.pxt ]'
+safemode print: '[ pxt/fx96.pxt ]'
+safemode print: '[ pxt/fx97.pxt ]'
+safemode print: '[ pxt/fx98.pxt ]'
+safemode print: '[ pxt/fx99.pxt ]'
+safemode print: '[ pxt/fx9a.pxt ]'
+safemode print: '[ pxt/fx9b.pxt ]'
+safemode print: '[ endpic/credit01.bmp ]'
+safemode print: '[ endpic/credit02.bmp ]'
+safemode print: '[ endpic/credit03.bmp ]'
+safemode print: '[ endpic/credit04.bmp ]'
+safemode print: '[ endpic/credit05.bmp ]'
+safemode print: '[ endpic/credit06.bmp ]'
+safemode print: '[ endpic/credit07.bmp ]'
+safemode print: '[ endpic/credit08.bmp ]'
+safemode print: '[ endpic/credit09.bmp ]'
+safemode print: '[ endpic/credit10.bmp ]'
+safemode print: '[ endpic/credit11.bmp ]'
+safemode print: '[ endpic/credit12.bmp ]'
+safemode print: '[ endpic/credit14.bmp ]'
+safemode print: '[ endpic/credit15.bmp ]'
+safemode print: '[ endpic/credit16.bmp ]'
+safemode print: '[ endpic/credit17.bmp ]'
+safemode print: '[ endpic/credit18.bmp ]'
+safemode print: '[ endpic/pixel.bmp ]'
+safemode print: '[ wavetable.dat ]'
+safemode print: '[ org/access.org ]'
+safemode print: '[ org/balcony.org ]'
+safemode print: '[ org/balrog.org ]'
+safemode print: '[ org/breakdown.org ]'
+safemode print: '[ org/cemetary.org ]'
+safemode print: '[ org/charge.org ]'
+safemode print: '[ org/credits.org ]'
+safemode print: '[ org/egg.org ]'
+safemode print: '[ org/eyesofflame.org ]'
+safemode print: '[ org/fanfale1.org ]'
+safemode print: '[ org/fanfale2.org ]'
+safemode print: '[ org/fanfale3.org ]'
+safemode print: '[ org/gameover.org ]'
+safemode print: '[ org/geothermal.org ]'
+safemode print: '[ org/gestation.org ]'
+safemode print: '[ org/gravity.org ]'
+safemode print: '[ org/grasstown.org ]'
+safemode print: '[ org/hell.org ]'
+safemode print: '[ org/heroend.org ]'
+safemode print: '[ org/jenka1.org ]'
+safemode print: '[ org/jenka2.org ]'
+safemode print: '[ org/labyrinth.org ]'
+safemode print: '[ org/lastbattle.org ]'
+safemode print: '[ org/lastcave.org ]'
+safemode print: '[ org/meltdown2.org ]'
+safemode print: '[ org/oppression.org ]'
+safemode print: '[ org/oside.org ]'
+safemode print: '[ org/plant.org ]'
+safemode print: '[ org/pulse.org ]'
+safemode print: '[ org/quiet.org ]'
+safemode print: '[ org/run.org ]'
+safemode print: '[ org/safety.org ]'
+safemode print: '[ org/scorching.org ]'
+safemode print: '[ org/seal.org ]'
+safemode print: '[ org/theme.org ]'
+safemode print: '[ org/toroko.org ]'
+safemode print: '[ org/town.org ]'
+safemode print: '[ org/tyrant.org ]'
+safemode print: '[ org/waterway.org ]'
+safemode print: '[ org/white.org ]'
+safemode print: '[ org/zombie.org ]'
+safemode print: '[ stage.dat ]'
+safemode print: 'Success!'
+safemode print: ''
+safemode print: 'You can now remove the Doukutsu.exe file'
+safemode print: 'if you like, as it isn't needed anymore.'
+safemode print: 'Please leave the "data" directory though.'
+safemode print: ''
+safemode print: 'Once you get to the title screen, you may want'
+safemode print: 'to adjust your resolution by pressing F3.'
+safemode print: ''
+safemode print: 'Press any key to begin'
+run_until_key()
+returning key 97
+Writing settings...
+sslib: initilization was successful.
+Loading Sound FX...
+LoadFXCache: audio cache sndcache.pcm not exist
+ error << pxt_load: file './pxt/fx08.pxt' not found. >>
+ error << pxt_load: file './pxt/fx09.pxt' not found. >>
+ error << pxt_load: file './pxt/fx0a.pxt' not found. >>
+ error << pxt_load: file './pxt/fx0d.pxt' not found. >>
+ error << pxt_load: file './pxt/fx13.pxt' not found. >>
+ error << pxt_load: file './pxt/fx24.pxt' not found. >>
+ error << pxt_load: file './pxt/fx42.pxt' not found. >>
+ error << pxt_load: file './pxt/fx43.pxt' not found. >>
+ error << pxt_load: file './pxt/fx44.pxt' not found. >>
+ error << pxt_load: file './pxt/fx45.pxt' not found. >>
+ error << pxt_load: file './pxt/fx49.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4a.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4b.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4c.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4d.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4e.pxt' not found. >>
+ error << pxt_load: file './pxt/fx4f.pxt' not found. >>
+ error << pxt_load: file './pxt/fx50.pxt' not found. >>
+ error << pxt_load: file './pxt/fx51.pxt' not found. >>
+ error << pxt_load: file './pxt/fx52.pxt' not found. >>
+ error << pxt_load: file './pxt/fx53.pxt' not found. >>
+ error << pxt_load: file './pxt/fx54.pxt' not found. >>
+ error << pxt_load: file './pxt/fx55.pxt' not found. >>
+ error << pxt_load: file './pxt/fx56.pxt' not found. >>
+ error << pxt_load: file './pxt/fx57.pxt' not found. >>
+ error << pxt_load: file './pxt/fx58.pxt' not found. >>
+ error << pxt_load: file './pxt/fx59.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5a.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5b.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5c.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5d.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5e.pxt' not found. >>
+ error << pxt_load: file './pxt/fx5f.pxt' not found. >>
+ error << pxt_load: file './pxt/fx60.pxt' not found. >>
+ error << pxt_load: file './pxt/fx61.pxt' not found. >>
+ error << pxt_load: file './pxt/fx62.pxt' not found. >>
+ error << pxt_load: file './pxt/fx63.pxt' not found. >>
+ - created sndcache.pcm; 1273006 bytes
+Calculating pitch scale...
+load_drumtable: cache gone; rebuilding drums...
+load_drum: loading ./pxt/fx96.pxt into drum index 0
+drum00 [./pxt/fx96.pxt]: 5000 samples
+load_drum: loading ./pxt/fx97.pxt into drum index 2
+drum02 [./pxt/fx97.pxt]: 10000 samples
+load_drum: loading ./pxt/fx9a.pxt into drum index 4
+drum04 [./pxt/fx9a.pxt]: 10000 samples
+load_drum: loading ./pxt/fx98.pxt into drum index 5
+drum05 [./pxt/fx98.pxt]: 1000 samples
+load_drum: loading ./pxt/fx99.pxt into drum index 6
+drum06 [./pxt/fx99.pxt]: 10000 samples
+load_drum: loading ./pxt/fx9b.pxt into drum index 8
+drum08 [./pxt/fx9b.pxt]: 4000 samples
+-- Drums loaded from cache
+tsc_load: loading 'data/Head.tsc' to page 0
+tsc_load: loading 'data/ArmsItem.tsc' to page 2
+tsc_load: loading 'data/StageSelect.tsc' to page 3
+Reading npc.tbl...
+InitList::CallFunctions(08145360): executing 61 functions...
+initslopetable: generating slopetables.
+initmapfirsttime: loading tilekey.dat.
+Setting tick function to type 1 param 0
+Setting tick function to type 6 param 0
+Entering main loop...
+ >> Entering stage 72: 'u'.
+load_map: level size 21x16
+load_map: 'data/Stage/Kings.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/White.pxa
+load_entities: reading in data/Stage/Kings.pxe
+tsc_load: loading 'data/Stage/Kings.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 100
+  - Started script 0100
+0100:0  002c <KEY 
+0100:1  0032 <MNA 
+0100:2   0050
+0100:5   0001
+0100:8  TEXT  '\n'
+0100:11   0000
+ANP: Obj 09a4a658 (OBJ_INTRO_DOCTOR(298)): setting state: 10 and dir: LEFT
+0100:18   0097
+0100:21  TEXT  '\n'
+0100:24   0000
+ANP: Obj 09a4a658 (OBJ_INTRO_DOCTOR(298)): setting state: 1 and dir: LEFT
+0100:31   0050
+  - Stopped script 0100
+Setting tick function to type 7 param 0
+niku_load: couldn't open file '290.rec'
+ >> music(24)
+./org/theme.org: Org-02 detected
+ >> Entering stage 0: 'Null'.
+load_map: level size 21x20
+load_map: 'data/Stage/0.pxm' loaded OK! - 21x20
+load_pxa: reading in data/Stage/0.pxa
+load_entities: reading in data/Stage/0.pxe
+tsc_load: loading 'data/Stage/0.tsc' to page 1
+StageBossManager::SetType(0)
+Setting pause: type 9 param 0
+Setting pause: type 0 param 0
+Writing settings...
+ >> music(0)
+Setting tick function to type 1 param 0
+= Beginning new game =
+ >> Entering stage 13: 'Start Point'.
+load_map: level size 21x16
+load_map: 'data/Stage/Start.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Start.pxe
+tsc_load: loading 'data/Stage/Start.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 200
+  - Started script 0200
+0200:0  002c <KEY 
+0200:1   0091
+0200:6  003f <PRI 
+0200:7   0000
+0200:10  0039 <MSG 
+0200:11  TEXT  '\nFrom somewhere, a transmission...'
+0200:47  003d <NOD 
+0200:48  0009 <CLO 
+0200:49   0430
+0200:52   0000
+******* Executing <TRA to stage 18
+  - Stopped script 0200
+ >> Entering stage 18: 'Shelter'.
+load_map: level size 21x16
+load_map: 'data/Stage/Shelt.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Store.pxa
+load_entities: reading in data/Stage/Shelt.pxe
+tsc_load: loading 'data/Stage/Shelt.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 500
+  - Started script 0500
+0500:0  002c <KEY 
+0500:1   0021
+ >> music(21)
+./org/access.org: Org-02 detected
+0500:4   0004
+0500:7  TEXT  '\n'
+0500:10  0039 <MSG 
+0500:11  0053 <TUR 
+0500:12  TEXT  'Connecting to network...'
+0500:38   0050
+0500:41  TEXT  '\n'
+0500:44  0053 <TUR 
+0500:45  TEXT  'Logged on.'
+0500:57   0050
+0500:60  TEXT  '\n'
+0500:63  0053 <TUR 
+0500:64  TEXT  'Executing chat algorithm.'
+0500:91   0100
+0500:94  000a <CLR 
+0500:95  0039 <MSG 
+0500:96  TEXT  'Sue?'
+0500:102  003d <NOD 
+0500:103  TEXT  '\nYou there?'
+0500:116  003d <NOD 
+0500:117  TEXT  '\nIt's me.'
+0500:128  003d <NOD 
+0500:129  TEXT  '\nKazuma!'
+0500:139  003d <NOD 
+0500:140  TEXT  '\nI managed to get away somehow,\nbut I've gotten lost...'
+0500:197  003d <NOD 
+0500:198  TEXT  '\nI've found a shelter, but there's\nnothing here.'
+0500:248  003d <NOD 
+0500:249  TEXT  '\nIf you can hear me,\nplease answer!'
+0500:286  003d <NOD 
+0500:287  000a <CLR 
+0500:288  TEXT  '...Please?'
+0500:300  003d <NOD 
+0500:301  TEXT  '\n'
+0500:304   0004
+0500:307   0005
+0500:310   0008
+******* Executing <TRA to stage 13
+  - Stopped script 0500
+ >> Entering stage 13: 'Start Point'.
+load_map: level size 21x16
+load_map: 'data/Stage/Start.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Start.pxe
+ -- Disappearing object 200 ([Type 0]) because flag 430 is set
+tsc_load: loading 'data/Stage/Start.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 91
+  - Started script 0091
+0091:0  0032 <MNA 
+0091:1   0008
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0091:4   0001
+0091:7  0014 <END 
+  - Stopped script 0091
+  - Started script 0100
+0100:0  003f <PRI 
+0100:1   0000
+CNP: Obj 0956fd48 changing from OBJ_DOOR(18) to [Type 0], new dir = LEFT
+0100:8  TEXT  '\n'
+0100:11   0011
+0100:14   0001
+0100:17  TEXT  '\n'
+0100:20   0011
+******* Executing <TRA to stage 12
+  - Stopped script 0100
+ >> Entering stage 12: 'First Cave'.
+load_map: level size 60x45
+load_map: 'data/Stage/Cave.pxm' loaded OK! - 60x45
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Cave.pxe
+onspawn_spike_small: spike 09c874a0 embedded in wall, deleting
+onspawn_spike_small: spike 09c875b8 embedded in wall, deleting
+tsc_load: loading 'data/Stage/Cave.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 91
+  - Started script 0091
+0091:0  0032 <MNA 
+0091:1   0008
+0091:4   0001
+0091:7  0014 <END 
+  - Stopped script 0091
+  - Started script 0400
+0400:0  003f <PRI 
+0400:1   0022
+0400:4   0400
+DNP: 09a153b0 (OBJ_LIFE_CAPSULE(32)) deleted
+0400:7   0016
+ >> music(16)
+./org/fanfale3.org: Org-02 detected
+0400:10  TEXT  '\n'
+0400:13  0039 <MSG 
+0400:14   1006
+0400:17  TEXT  'Got a =Life Capsule=!'
+0400:40   0160
+0400:43  003d <NOD 
+0400:44  0042 <RMU 
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0400:45   0003
+0400:48  TEXT  '\nMax health increased by 3!'
+0400:77  003d <NOD 
+0400:78  0014 <END 
+  - Stopped script 0400
+  - Started script 0110
+0110:0  002c <KEY 
+0110:1   0004
+0110:4   0009
+******* Executing <TRA to stage 90
+  - Stopped script 0110
+ >> Entering stage 90: 'Hermit Gunsmith'.
+load_map: level size 21x16
+load_map: 'data/Stage/Pole.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Pole.pxe
+tsc_load: loading 'data/Stage/Pole.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 92
+  - Started script 0092
+0092:0  0032 <MNA 
+0092:1   0008
+0092:4   0002
+0092:7  0014 <END 
+  - Stopped script 0092
+  - Started script 0300
+0300:0  002c <KEY 
+0300:1  0039 <MSG 
+0300:2  TEXT  '*snore*'
+0300:11  003d <NOD 
+0300:12  0014 <END 
+  - Stopped script 0300
+  - Started script 0200
+0200:0  002c <KEY 
+0200:1   0201
+0200:6   1640
+0200:9   0022
+0200:12   0000
+CNP: Obj 0956fd48 changing from OBJ_CHEST_CLOSED(15) to OBJ_CHEST_OPEN(21), new dir = LEFT
+0200:19  TEXT  '\n'
+0200:22  0039 <MSG 
+0200:23  TEXT  'Opened the chest.'
+0200:42  003d <NOD 
+0200:43   0002
+0200:46   0000
+0200:51  000a <CLR 
+0200:52  TEXT  '\n'
+0200:55   0010
+ >> music(10)
+./org/fanfale1.org: Org-02 detected
+0200:58  TEXT  'Got the =Polar Star=!'
+0200:81   0160
+0200:84  003d <NOD 
+0200:85   0000
+0200:88  0009 <CLO 
+0200:89  0042 <RMU 
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0200:90  TEXT  '\n'
+0200:93  0039 <MSG 
+0200:94  TEXT  '\nFrom somewhere, a transmission...'
+0200:130   0004
+0200:133  003d <NOD 
+0200:134   0000
+******* Executing <TRA to stage 18
+  - Stopped script 0200
+ >> Entering stage 18: 'Shelter'.
+load_map: level size 21x16
+load_map: 'data/Stage/Shelt.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Store.pxa
+load_entities: reading in data/Stage/Shelt.pxe
+tsc_load: loading 'data/Stage/Shelt.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 501
+  - Started script 0501
+0501:0  002c <KEY 
+0501:1  0026 <HMC 
+0501:2   0021
+ >> music(21)
+./org/access.org: Org-02 detected
+0501:5   0004
+0501:8  TEXT  '\n'
+0501:11  0039 <MSG 
+0501:12  0053 <TUR 
+0501:13  TEXT  'Searching for user "Sue"...'
+0501:42   0150
+0501:45  000a <CLR 
+0501:46  0053 <TUR 
+0501:47  TEXT  '1 user "Sue" found.'
+0501:68   0150
+0501:71  000a <CLR 
+0501:72  0039 <MSG 
+0501:73  TEXT  'Sue!'
+0501:79  003d <NOD 
+0501:80  TEXT  '\nPlease respond!'
+0501:98  003d <NOD 
+0501:99  TEXT  '\nThey're looking for you...'
+0501:128  003d <NOD 
+0501:129  TEXT  '\nAre you asleep?'
+0501:147  003d <NOD 
+0501:148  TEXT  '\nYour brother is so lonely...'
+0501:179  003d <NOD 
+0501:180   0004
+0501:183  0049 <SMC 
+0501:184  0009 <CLO 
+0501:185  TEXT  '\n'
+0501:188   0009
+******* Executing <TRA to stage 90
+  - Stopped script 0501
+ >> Entering stage 90: 'Hermit Gunsmith'.
+load_map: level size 21x16
+load_map: 'data/Stage/Pole.pxm' loaded OK! - 21x16
+load_pxa: reading in data/Stage/Cave.pxa
+load_entities: reading in data/Stage/Pole.pxe
+ -- Disappearing object 200 (OBJ_CHEST_CLOSED(15)) because flag 1640 is set
+ -- Appearing object 201 (OBJ_CHEST_OPEN(21)) because flag 1640 is set
+tsc_load: loading 'data/Stage/Pole.tsc' to page 1
+StageBossManager::SetType(0)
+-- Starting on-entry script 95
+  - Started script 0095
+0095:0   0008
+ >> music(8)
+./org/gestation.org: Org-02 detected
+0095:3   0001
+0095:6  0014 <END 
+  - Stopped script 0095
+Setting pause: type 8 param 0
+Graphics::Close()
