@@ -1,0 +1,193 @@
+2015-04-30  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* TextBox/SaveSelect.cpp(SetVisible): Modified file (this function stores in the 'profile_name' variable the value returned by the 'GetProfileName' function).
+
+	* TextBox/SaveSelect.cpp(SetVisible): Modified file (this function frees the 'profile_name' variable).
+
+	* TextBox/SaveSelect.fdh(GetProfileName): Modified file (this function does not have the 'const' return type anymore).
+
+	* ai/ai.cpp(load_npc_tbl): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* config.h: Modified file (the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* dirnames.h: Modified file (the 'data_dir' variable 'const' type is removed).
+
+	* dirnames.h: Modified file (the 'stage_dir' variable 'const' type is removed).
+
+	* dirnames.h: Modified file (the 'pic_dir' variable 'const' type is removed).
+
+	* extract/extract.cpp(extract_do): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* extract/extractfiles.cpp(extract_files): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* extract/extractfiles.cpp(createdir): Modified file (this function creates all parent directories).
+
+	* extract/extractpxt.cpp(extract_pxt): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* extract/extractstages.cpp(extract_stages): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* game.cpp(game_load): Modified file (this function stores in the 'profile_name' variable the value returned by the 'GetProfileName' function).
+
+	* game.cpp(game_load): Modified file (this function frees the 'profile_name' variable).
+
+	* game.fdh(GetProfileName): Modified file (this function does not have the 'const' return type anymore).
+
+	* graphics/font.cpp: Modified file (the current directory is used only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* graphics/sprites.cpp(Init): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* main.cpp(main): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* main.cpp(main): Modified file (this function stores in the 'profile_name' variable the value returned by the 'GetProfileName' function).
+
+	* main.cpp(main): Modified file (this function frees the 'profile_name' variable).
+
+	* main.fdh(GetProfileName): Modified file (this function does not have the 'const' return type anymore).
+
+	* map.cpp(load_stages): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* map.cpp(initmapfirsttime): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* map.cpp(DrawFastLeftLayered): Modified file (this function initializes the 'nlayers' variable to the '5' value instead of '6').
+
+	* map.cpp(DrawFastLeftLayered): Modified file (this function uses the 'const' type for the 'nlayers' variable).
+
+	* niku.cpp(niku_load): Modified file (this function does not use the 'const' type for the 'fname' variable anymore).
+
+	* niku.cpp(niku_save): Modified file (this function does not use the 'const' type for the 'fname' variable anymore).
+
+	* niku.cpp(getfname): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* niku.cpp(getfname): Modified file (this function does not have the 'const' return type anymore).
+
+	* niku.fdh(getfname): Modified file (this function does not have the 'const' return type anymore).
+
+	* profile.cpp(GetProfileName): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* profile.cpp(GetProfileName): Modified file (this function does not have the 'const' return type anymore).
+
+	* profile.cpp(ProfileExists): Modified file (this function stores in the 'profile_name' variable the value returned by the 'GetProfileName' function).
+
+	* profile.cpp(ProfileExists): Modified file (this function frees the 'profile_name' variable).
+
+	* profile.fdh(GetProfileName): Modified file (this function does not have the 'const' return type anymore).
+
+	* replay.cpp(GetReplayName): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* settings.cpp(settings_setfilename): Modified file (this function is added to set the 'setfilename' variable).
+
+	* settings.cpp(settings_load): Modified file (this function calls 'settings_setfilename').
+
+	* settings.cpp(settings_save): Modified file (this function calls 'settings_setfilename').
+
+	* sound/org.cpp(load_drumtable): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* sound/sound.cpp(sound_init): Modified file (this function uses the current directory only if the 'CONFIG_CURRENT_DIR' macro is defined).
+
+	* sound/sound.cpp(sound_close): Modified file (this function frees the 'pxt_dir' variable).
+
+	* sound/sound.cpp(sound_close): Modified file (this function frees the 'org_dir' variable).
+
+	* sound/sound.cpp(sound_close): Modified file (this function frees the 'sndcache' variable).
+
+	* sound/sound.cpp(sound_close): Modified file (this function frees the 'org_wavetable' variable).
+
+2013-06-22  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* pause/options.fdh(input_button_remap): Modified file (this function takes a directional parameter in order to increase or decrease the value for the button mappings).
+
+	* pause/options.cpp(_edit_button): Modified file (this function calls 'input_button_remap' with a directional parameter).
+
+	* input.cpp(input_init): Modified file (this function initializes the button name).
+
+	* input.cpp(input_init): Modified file (this function initializes the number of buttons).
+
+	* input.cpp(input_button_remap): Modified file (this function takes a directional parameter in order to increase or decrease the value for the button mappings).
+
+	* input.cpp(input_get_button_name): Modified file (this function creates a name for all the buttons of the joystick).
+
+	* input.cpp(input_set_button_mappings): Modified file (this function sets the button mappings for all the buttons of the joystick).
+
+2013-06-21  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* sound/sslib.cpp(SSInit): Modified file (this function initializes the sound volume using the 'volume' setting).
+
+2013-06-14  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* sound/sslib.h(SSSetVolume): Modified file (this function is added).
+
+	* sound/org.cpp(org_start): Modified file (this function sets the volume using the volume settings).
+
+	* settings.h: Modified file (the 'Settings' structure contains the 'volume' member).
+
+	* settings.cpp(settings_load): Modified file (this function loads the 'volume' setting).
+
+	* pause/options.fdh(_volume_change): Modified file (this function is added).
+
+	* pause/options.fdh(_volume_get): Modified file (this function is added).
+
+	* pause/options.fdh(org_set_volume): Modified file (this function is added).
+
+	* pause/options.cpp(_volume_change): Modified file (this function is added to change the volume from the menu).
+
+	* pause/options.cpp(_volume_get): Modified file (this function is added to get the volume for the menu).
+
+	* pause/options.cpp(EnterMainMenu): Modified file (this function adds the 'Volume' item to the main menu).
+
+2013-06-08  YuGiOhJCJ  <yugiohjcj@1s.fr>
+
+	* AUTHORS: Added file (this file contains the list of authors).
+
+	* ChangeLog: Added file (this file contains the list of changes).
+
+	* TODO: Added file (this file contains the list of things to do).
+
+	* README: Added file (this file contains information about JoyNXEngine).
+
+	* input.cpp(input_poll): Modified file (this function handles the joystick events).
+
+	* input.cpp(input_push_event): Modified file (this function is added to push an event).
+
+	* input.cpp(input_set_button_mappings): Modified file (this function is added to set a button mappings).
+
+	* input.cpp(input_get_button_name): Modified file (this function is added to get a button name).
+
+	* input.cpp(input_get_button_mapping): Modified file (this function is added to get a button mapping).
+
+	* input.cpp(input_button_remap): Modified file (this function is added to remap a button).
+
+	* input.cpp(input_init): Modified file (this function sets the default button mappings).
+
+	* input.h: Modified file (the 'BUTTONS' enumeration is added).
+
+	* main.cpp(main): Modified file (this function initializes SDL with the 'SDL_INIT_JOYSTICK' flag).
+
+	* pause/options.cpp(EnterMainMenu): Modified file (this function adds the 'Joystick' item to the main menu).
+
+	* pause/options.cpp(EnterJoystickMenu): Modified file (this function is added to show the joystick menu).
+
+	* pause/options.cpp(_upd_button): Modified file (this function is added to update the joystick menu).
+
+	* pause/options.cpp(_edit_button): Modified file (this function is added to edit the joystick menu).
+
+	* pause/options.fdh(EnterJoystickMenu): Modified file (this function is added).
+
+	* pause/options.fdh(_upd_button): Modified file (this function is added).
+
+	* pause/options.fdh(_edit_button): Modified file (this function is added).
+
+	* pause/options.fdh(input_get_button_mapping): Modified file (this function is added).
+
+	* pause/options.fdh(input_get_button_name): Modified file (this function is added).
+
+	* pause/options.fdh(input_button_remap): Modified file (this function is added).
+
+	* settings.cpp(settings_load): Modified file (this function loads the 'input_button_mappings' setting).
+
+	* settings.cpp(settings_save): Modified file (this function saves the 'input_button_mappings' setting).
+
+	* settings.fdh(input_set_button_mappings): Modified file (this function is added).
+
+	* settings.fdh(input_get_button_mapping): Modified file (this function is added).
+
+	* settings.h: Modified file (the 'Settings' structure contains the 'input_button_mappings' member).
