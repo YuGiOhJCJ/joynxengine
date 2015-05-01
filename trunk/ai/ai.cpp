@@ -1,4 +1,5 @@
 
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "stdai.h"
 #include "ai.fdh"
 
@@ -37,8 +38,21 @@ bool load_npc_tbl(void)
 const int smoke_amounts[] = { 0, 3, 7, 12 };
 const int nEntries = 361;
 int i;
+char *npc_file;
 
-	FILE *fp = fileopen("data/npc.tbl", "rb");
+	// set the npc_file variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *npc_file_1 = getenv("HOME");
+	const char *npc_file_2 = "/.joynxengine/data/npc.tbl";
+	npc_file = (char*) malloc((strlen(npc_file_1) + strlen(npc_file_2) + 1) * sizeof(char));
+	sprintf(npc_file, "%s%s", npc_file_1, npc_file_2);	
+#else
+	const char *npc_file_1 = "data/npc.tbl";
+	npc_file = (char*) malloc((strlen(npc_file_1) + 1) * sizeof(char));
+	sprintf(npc_file, "%s", npc_file_1);	
+#endif
+	FILE *fp = fileopen(npc_file, "rb");
+	free(npc_file);
 	if (!fp) { staterr("load_npc_tbl: data/npc.tbl is missing"); return 1; }
 	
 	stat("Reading npc.tbl...");

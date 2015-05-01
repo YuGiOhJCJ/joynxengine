@@ -2,6 +2,7 @@
 // sprites routines
 #include "graphics.h"
 #include <string.h>
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../siflib/sif.h"
 #include "../siflib/sifloader.h"
 #include "../siflib/sectSprites.h"
@@ -28,8 +29,13 @@ bool Sprites::Init()
 	memset(spritesheet, 0, sizeof(spritesheet));
 	
 	// load sprites info--sheet positions, bounding boxes etc
+#ifndef CONFIG_CURRENT_DIR
+	if (load_sif("/usr/share/joynxengine/sprites.sif"))
+		return 1;
+#else
 	if (load_sif("sprites.sif"))
 		return 1;
+#endif
 	
 	num_spritesheets = sheetfiles.CountItems();
 	return 0;

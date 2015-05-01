@@ -437,7 +437,10 @@ Profile p;
 
 	stat("game_load: loading savefile %d", num);
 	
-	if (profile_load(GetProfileName(num), &p))
+	char *profile_name = GetProfileName(num);
+	bool result = profile_load(profile_name, &p);
+	free(profile_name);
+	if (result)
 		return 1;
 	
 	return game_load(&p);

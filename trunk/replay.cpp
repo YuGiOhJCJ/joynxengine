@@ -483,7 +483,17 @@ void Replay::GetSlotInfo(int slotno, ReplaySlotInfo *slot)
 const char *GetReplayName(int slotno, char *buffer)
 {
 	if (!buffer) buffer = GetStaticStr();
-	sprintf(buffer, "replay/rep%d.dat", slotno);
+	// set the buffer variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *buffer_1 = getenv("HOME");
+	const char *buffer_2 = "/.joynxengine/replay/rep";
+	const char *buffer_3 = ".dat";
+	sprintf(buffer, "%s%s%d%s", buffer_1, buffer_2, slotno, buffer_3);
+#else
+	const char *buffer_1 = "replay/rep";
+	const char *buffer_2 = ".dat";
+	sprintf(buffer, "%s%d%s", buffer_1, slotno, buffer_2);
+#endif
 	return buffer;
 }
 

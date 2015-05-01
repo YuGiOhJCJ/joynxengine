@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../graphics/safemode.h"
 #include "../common/basics.h"
 #include "extractpxt.fdh"
@@ -156,17 +157,44 @@ int s, c, i;
 	{
 		if (!snd[s].id) break;
 		
-		char outfilename[MAXPATHLEN];
-		sprintf(outfilename, "pxt/fx%02x.pxt", snd[s].id);
+		char *outfilename;
+		char *pxt_dir;
+		// set the outfilename variable
+#ifndef CONFIG_CURRENT_DIR
+		const char *outfilename_1 = getenv("HOME");
+		const char *outfilename_2 = "/.joynxengine/pxt/fx";
+		const char *outfilename_3 = ".pxt";
+		outfilename = (char*) malloc((strlen(outfilename_1) + strlen(outfilename_2) + 2 + strlen(outfilename_3) + 1) * sizeof(char));
+		sprintf(outfilename, "%s%s%02x%s", outfilename_1, outfilename_2, snd[s].id, outfilename_3);
+#else
+		const char *outfilename_1 = "pxt/fx";
+		const char *outfilename_2 = ".pxt";
+		outfilename = (char*) malloc((strlen(outfilename_1) + 2 + strlen(outfilename_2) + 1) * sizeof(char));
+		sprintf(outfilename, "%s%02x%s", outfilename_1, snd[s].id, outfilename_2);
+#endif
+		// set the pxt_dir variable
+#ifndef CONFIG_CURRENT_DIR
+		const char *pxt_dir_1 = getenv("HOME");
+		const char *pxt_dir_2 = "/.joynxengine/pxt";
+		pxt_dir = (char*) malloc((strlen(pxt_dir_1) + strlen(pxt_dir_2) + 1) * sizeof(char));
+		sprintf(pxt_dir, "%s%s", pxt_dir_1, pxt_dir_2);
+#else
+		const char *pxt_dir_1 = "pxt";
+		pxt_dir = (char*) malloc((strlen(pxt_dir_1) + 1) * sizeof(char));
+		sprintf(pxt_dir, "%s", pxt_dir_1);
+#endif
 		status("[ %s ]", outfilename);
 		
-		mkdir("pxt", 0755);
+		mkdir(pxt_dir, 0755);
+		free(pxt_dir);
 		FILE *fpo = fileopen(outfilename, "wb");
 		if (!fpo)
 		{
 			status("failed to open %s", outfilename);
+			free(outfilename);
 			return 1;
 		}
+		free(outfilename);
 		
 		fseek(fp, snd[s].offset, SEEK_SET);
 		memset(chan, 0, sizeof(chan));

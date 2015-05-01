@@ -34,13 +34,57 @@ const char *org_names[] =
 
 static const char bossmusic[] = { 4, 7, 10, 11, 15, 16, 17, 18, 21, 22, 31, 33, 35, 0 };
 
-static const char *pxt_dir = "./pxt/";
-static const char *org_dir = "./org/";
-static const char *sndcache = "sndcache.pcm";
-static const char *org_wavetable = "wavetable.dat";
+static char *pxt_dir;
+static char *org_dir;
+static char *sndcache;
+static char *org_wavetable;
 
 bool sound_init(void)
 {
+	// set the pxt_dir variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *pxt_dir_1 = getenv("HOME");
+	const char *pxt_dir_2 = "/.joynxengine/pxt/";
+	pxt_dir = (char*) malloc((strlen(pxt_dir_1) + strlen(pxt_dir_2) + 1) * sizeof(char));
+	sprintf(pxt_dir, "%s%s", pxt_dir_1, pxt_dir_2);
+#else
+	const char *pxt_dir_1 = "./pxt/";
+	pxt_dir = (char*) malloc((strlen(pxt_dir_1) + 1) * sizeof(char));
+	sprintf(pxt_dir, "%s", pxt_dir_1);
+#endif
+	// set the org_dir variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *org_dir_1 = getenv("HOME");
+	const char *org_dir_2 = "/.joynxengine/org/";
+	org_dir = (char*) malloc((strlen(org_dir_1) + strlen(org_dir_2) + 1) * sizeof(char));
+	sprintf(org_dir, "%s%s", org_dir_1, org_dir_2);
+#else
+	const char *org_dir_1 = "./org/";
+	org_dir = (char*) malloc((strlen(org_dir_1) + 1) * sizeof(char));
+	sprintf(org_dir, "%s", org_dir_1);
+#endif
+	// set the sndcache variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *sndcache_1 = getenv("HOME");
+	const char *sndcache_2 = "/.joynxengine/sndcache.pcm";
+	sndcache = (char*) malloc((strlen(sndcache_1) + strlen(sndcache_2) + 1) * sizeof(char));
+	sprintf(sndcache, "%s%s", sndcache_1, sndcache_2);
+#else
+	const char *sndcache_1 = "sndcache.pcm";
+	sndcache = (char*) malloc((strlen(sndcache_1) + 1) * sizeof(char));
+	sprintf(sndcache, "%s", sndcache_1);
+#endif
+	// set the org_wavetable variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *org_wavetable_1 = getenv("HOME");
+	const char *org_wavetable_2 = "/.joynxengine/wavetable.dat";
+	org_wavetable = (char*) malloc((strlen(org_wavetable_1) + strlen(org_wavetable_2) + 1) * sizeof(char));
+	sprintf(org_wavetable, "%s%s", org_wavetable_1, org_wavetable_2);
+#else
+	const char *org_wavetable_1 = "wavetable.dat";
+	org_wavetable = (char*) malloc((strlen(org_wavetable_1) + 1) * sizeof(char));
+	sprintf(org_wavetable, "%s", org_wavetable_1);
+#endif
 	if (SSInit()) return 1;
 	if (pxt_init()) return 1;
 	if (pxt_LoadSoundFX(pxt_dir, sndcache, NUM_SOUNDS)) return 1;
@@ -58,6 +102,10 @@ void sound_close(void)
 {
 	pxt_freeSoundFX();
 	SSClose();
+	free(pxt_dir);
+	free(org_dir);
+	free(sndcache);
+	free(org_wavetable);
 }
 
 /*

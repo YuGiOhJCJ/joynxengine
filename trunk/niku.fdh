@@ -12,7 +12,7 @@ FILE *fileopen(const char *fname, const char *mode);
 //---------------------[referenced from niku.cpp]--------------------//
 bool niku_load(uint32_t *value_out);
 bool niku_save(uint32_t value);
-static const char *getfname();
+static char *getfname();
 
 
 /* located in common/stat.cpp */
