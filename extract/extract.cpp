@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../graphics/safemode.h"
 #include "extract.fdh"
 
@@ -13,7 +14,7 @@ using safemode::clearstatus;
 using safemode::clear;
 using safemode::moveto;
 using safemode::run_until_key;
-static const char *filename = "Doukutsu.exe";
+static char *filename;
 
 static int extract_do(void)
 {
@@ -23,6 +24,17 @@ FILE *fp;
 	moveto(SM_UPPER_THIRD);
 	print("= Extracting Files =");
 	
+	// set the filename variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *filename_1 = getenv("HOME");
+	const char *filename_2 = "/.joynxengine/Doukutsu.exe";
+	filename = (char*) malloc((strlen(filename_1) + strlen(filename_2) + 1) * sizeof(char));
+	sprintf(filename, "%s%s", filename_1, filename_2);
+#else
+	const char *filename_1 = "Doukutsu.exe";
+	filename = (char*) malloc((strlen(filename_1) + 1) * sizeof(char));
+	sprintf(filename, "%s", filename_1);
+#endif
 	fp = fileopen(filename, "rb");
 	if (!fp)
 	{
@@ -33,8 +45,10 @@ FILE *fp;
 		print("Please put it and it's \"data\" directory");
 		print("into the same folder as this program.");
 		run_until_key();
+		free(filename);
 		return 1;
 	}
+	free(filename);
 	
 	if (extract_pxt(fp)) return 1;
 	if (extract_files(fp)) return 1;

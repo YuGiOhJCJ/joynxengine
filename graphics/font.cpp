@@ -25,8 +25,13 @@ static const char bitmap_map[] = {		// letter order of bitmap font sheet
 	"'abcdefghijklmnopqrstuvwxyz{|}~"
 };
 
+#ifndef CONFIG_CURRENT_DIR
+const char *bmpfontfile = "/usr/share/joynxengine/smalfont.bmp";
+const char *ttffontfile = "/usr/share/joynxengine/font.ttf";
+#else
 const char *bmpfontfile = "smalfont.bmp";
 const char *ttffontfile = "font.ttf";
+#endif
 
 static SDL_Surface *sdl_screen = NULL;
 static SDL_Surface *shadesfc = NULL;

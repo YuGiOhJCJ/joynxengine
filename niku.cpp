@@ -1,6 +1,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h> // for free
+#include <string.h> // for strlen
+#include "config.h" // for CONFIG_CURRENT_DIR
 #include "niku.fdh"
 
 /*
@@ -17,12 +20,13 @@ uint8_t buffer[20];
 uint32_t *result = (uint32_t *)buffer;
 int i, j;
 
-	const char *fname = getfname();
+	char *fname = getfname();
 	fp = fileopen(fname, "rb");
 	if (!fp)
 	{
 		stat("niku_load: couldn't open file '%s'", fname);
 		if (value_out) *value_out = 0;
+		free(fname);
 		return 1;
 	}
 	
@@ -52,6 +56,7 @@ int i, j;
 		stat("niku_load: loaded value 0x%x from %s", *result, fname);
 		if (value_out) *value_out = *result;
 	}
+	free(fname);
 	
 	return 0;
 }
@@ -86,13 +91,15 @@ uint32_t *buf_dword = (uint32_t *)buf_byte;
 		ptr[3] += key / 2;
 	}
 	
-	const char *fname = getfname();
+	char *fname = getfname();
 	FILE *fp = fileopen(fname, "wb");
 	if (!fp)
 	{
 		staterr("niku_save: failed to open '%s'", fname);
+		free(fname);
 		return 1;
 	}
+	free(fname);
 	
 	fwrite(buf_byte, 20, 1, fp);
 	fclose(fp);
@@ -105,11 +112,21 @@ uint32_t *buf_dword = (uint32_t *)buf_byte;
 void c------------------------------() {}
 */
 
-static const char *getfname()
+static char *getfname()
 {
-	// might do stuff with sprintf here to place it in other subdirectories, etc.
-	// is just here for expansion.
-	return "290.rec";
+	char *fname;
+	// set the fname variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *fname_1 = getenv("HOME");
+	const char *fname_2 = "/.joynxengine/290.rec";
+	fname = (char*) malloc((strlen(fname_1) + strlen(fname_2) + 1) * sizeof(char));
+	sprintf(fname, "%s%s", fname_1, fname_2);
+#else
+	const char *fname_1 = "290.rec";
+	fname = (char*) malloc((strlen(fname_1) + 1) * sizeof(char));
+	sprintf(fname, "%s", fname_1);
+#endif
+	return fname;
 }
 
 

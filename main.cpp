@@ -2,12 +2,14 @@
 #include "nx.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <sys/stat.h> // for mkdir
+#include <sys/types.h> // for mkdir
 #include "graphics/safemode.h"
 #include "main.fdh"
 
-const char *data_dir = "data";
-const char *stage_dir = "data/Stage";
-const char *pic_dir = "endpic";
+char *data_dir;
+char *stage_dir;
+char *pic_dir;
 const char *nxdata_dir = ".";
 
 int fps = 0;
@@ -26,7 +28,57 @@ bool inhibit_loadfade = false;
 bool error = false;
 bool freshstart;
 	
+	// set the data_dir variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *data_dir_1 = getenv("HOME");
+	const char *data_dir_2 = "/.joynxengine/data";
+	data_dir = (char*) malloc((strlen(data_dir_1) + strlen(data_dir_2) + 1) * sizeof(char));
+	sprintf(data_dir, "%s%s", data_dir_1, data_dir_2);
+#else
+	const char *data_dir_1 = "data";
+	data_dir = (char*) malloc((strlen(data_dir_1) + 1) * sizeof(char));
+	sprintf(data_dir, "%s", data_dir_1);
+#endif
+	// set the stage_dir variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *stage_dir_1 = getenv("HOME");
+	const char *stage_dir_2 = "/.joynxengine/data/Stage";
+	stage_dir = (char*) malloc((strlen(stage_dir_1) + strlen(stage_dir_2) + 1) * sizeof(char));
+	sprintf(stage_dir, "%s%s", stage_dir_1, stage_dir_2);
+#else
+	const char *stage_dir_1 = "data/Stage";
+	stage_dir = (char*) malloc((strlen(stage_dir_1) + 1) * sizeof(char));
+	sprintf(stage_dir, "%s", stage_dir_1);
+#endif
+	// set the pic_dir variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *pic_dir_1 = getenv("HOME");
+	const char *pic_dir_2 = "/.joynxengine/endpic";
+	pic_dir = (char*) malloc((strlen(pic_dir_1) + strlen(pic_dir_2) + 1) * sizeof(char));
+	sprintf(pic_dir, "%s%s", pic_dir_1, pic_dir_2);
+#else
+	const char *pic_dir_1 = "endpic";
+	pic_dir = (char*) malloc((strlen(pic_dir_1) + 1) * sizeof(char));
+	sprintf(pic_dir, "%s", pic_dir_1);
+#endif
+#ifndef CONFIG_CURRENT_DIR
+	// create the joynxengine directory
+	const char *joynxengine_dir_1 = getenv("HOME");
+	const char *joynxengine_dir_2 = "/.joynxengine";
+	char *joynxengine_dir = (char*) malloc((strlen(joynxengine_dir_1) + strlen(joynxengine_dir_2) + 1) * sizeof(char));
+	sprintf(joynxengine_dir, "%s%s", joynxengine_dir_1, joynxengine_dir_2);
+	mkdir(joynxengine_dir, 0755);
+	free(joynxengine_dir);
+	// create the debug file
+	const char *debug_file_1 = getenv("HOME");
+	const char *debug_file_2 = "/.joynxengine/debug.txt";
+	char *debug_file = (char*) malloc((strlen(debug_file_1) + strlen(debug_file_2) + 1) * sizeof(char));
+	sprintf(debug_file, "%s%s", debug_file_1, debug_file_2);
+	SetLogFilename(debug_file);
+	free(debug_file);
+#else
 	SetLogFilename("debug.txt");
+#endif
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0)
 	{
 		staterr("ack, sdl_init failed: %s.", SDL_GetError());
@@ -91,8 +143,11 @@ bool freshstart;
 	#else
 		//game.switchstage.mapno = LOAD_GAME;
 		//game.pause(GP_OPTIONS);
-		
-		if (settings->skip_intro && file_exists(GetProfileName(settings->last_save_slot)))
+	
+		char *profile_name = GetProfileName(settings->last_save_slot);
+		bool result = file_exists(profile_name);
+		free(profile_name);
+		if (settings->skip_intro && result)
 			game.switchstage.mapno = LOAD_GAME;
 		else
 			game.setmode(GM_INTRO);
@@ -198,6 +253,9 @@ shutdown: ;
 	sound_close();
 	tsc_close();
 	textbox.Deinit();
+	free(data_dir);
+	free(stage_dir);
+	free(pic_dir);
 	return error;
 	
 ingame_error: ;

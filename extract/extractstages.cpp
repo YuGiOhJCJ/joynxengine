@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../graphics/safemode.h"
 #include "../common/StringList.h"
 #include "../common/basics.h"
@@ -94,7 +95,20 @@ int i;
 	}
 	
 	// write out
-	FILE *fpo = fileopen("stage.dat", "wb");
+	char *stage_file;
+	// set the stage_file variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *stage_file_1 = getenv("HOME");
+	const char *stage_file_2 = "/.joynxengine/stage.dat";
+	stage_file = (char*) malloc((strlen(stage_file_1) + strlen(stage_file_2) + 1) * sizeof(char));
+	sprintf(stage_file, "%s%s", stage_file_1, stage_file_2);
+#else
+	const char *stage_file_1 = "stage.dat";
+	stage_file = (char*) malloc((strlen(stage_file_1) + 1) * sizeof(char));
+	sprintf(stage_file, "%s", stage_file_1);
+#endif
+	FILE *fpo = fileopen(stage_file, "wb");
+	free(stage_file);
 	if (!fpo)
 	{
 		status("failed to open stage.dat for writing");

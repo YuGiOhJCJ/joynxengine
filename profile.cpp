@@ -225,18 +225,50 @@ void c------------------------------() {}
 */
 
 // returns the filename for a save file given it's number
-const char *GetProfileName(int num)
+char *GetProfileName(int num)
 {
+	char* profile_name;
+	// set the profile_name variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *profile_name_1 = getenv("HOME");
 	if (num == 0)
-		return "profile.dat";
+	{
+		const char *profile_name_2 = "/.joynxengine/profile.dat";
+		profile_name = (char*) malloc((strlen(profile_name_1) + strlen(profile_name_2) + 1) * sizeof(char));
+		sprintf(profile_name, "%s%s", profile_name_1, profile_name_2);
+	}
 	else
-		return stprintf("profile%d.dat", num+1);
+	{
+		const char *profile_name_2 = "/.joynxengine/profile";
+		const char *profile_name_3 = ".dat";
+		profile_name = (char*) malloc((strlen(profile_name_1) + strlen(profile_name_2) + 1 + strlen(profile_name_3) + 1) * sizeof(char));
+		sprintf(profile_name, "%s%s%d%s", profile_name_1, profile_name_2, num + 1, profile_name_3);
+	}
+#else
+	if (num == 0)
+	{
+		const char *profile_name_1 = "profile.dat";
+		profile_name = (char*) malloc((strlen(profile_name_1) + 1) * sizeof(char));
+		sprintf(profile_name, "%s", profile_name_1);
+	}
+	else
+	{
+		const char *profile_name_1 = "profile";
+		const char *profile_name_2 = ".dat";
+		profile_name = (char*) malloc((strlen(profile_name_1) + 1 + strlen(profile_name_2) + 1) * sizeof(char));
+		sprintf(profile_name, "%s%d%s", profile_name_1, num + 1, profile_name_2);
+	}
+#endif
+	return profile_name;
 }
 
 // returns whether the given save file slot exists
 bool ProfileExists(int num)
 {
-	return file_exists(GetProfileName(num));
+	char *profile_name = GetProfileName(num);
+	bool result = file_exists(profile_name);
+	free(profile_name);
+	return result;
 }
 
 bool AnyProfileExists()

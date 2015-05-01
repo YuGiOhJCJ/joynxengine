@@ -40,7 +40,7 @@ bool load_stage(int stage_no);
 
 //---------------------[referenced from game.cpp]--------------------//
 bool profile_load(const char *pfname, Profile *file);
-const char *GetProfileName(int num);
+char *GetProfileName(int num);
 bool profile_save(const char *pfname, Profile *file);
 
 

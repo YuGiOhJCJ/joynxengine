@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../common/basics.h"
 #include "../graphics/safemode.h"
 #include "extractfiles.fdh"
@@ -124,8 +125,18 @@ bool first_crc_failure = true;
 	
 	for(int i=0;;i++)
 	{
-		const char *outfilename = files[i].filename;
-		if (!outfilename) break;
+		if (!files[i].filename) break;
+		char *outfilename;
+		// set the outfilename variable
+#ifndef CONFIG_CURRENT_DIR
+		const char *outfilename_1 = getenv("HOME");
+		const char *outfilename_2 = "/.joynxengine";
+		outfilename = (char*) malloc((strlen(outfilename_1) + strlen(outfilename_2) + 1 + strlen(files[i].filename) + 1) * sizeof(char));
+		sprintf(outfilename, "%s%s%s%s", outfilename_1, outfilename_2, "/", files[i].filename);
+#else
+		outfilename = (char*) malloc((strlen(files[i].filename) + 1) * sizeof(char));
+		sprintf(outfilename, "%s", files[i].filename);
+#endif
 		
 		status("[ %s ]", outfilename);
 		
@@ -185,6 +196,7 @@ bool first_crc_failure = true;
 						case STOP_BTN:
 						{
 							free(buffer);
+							free(outfilename);
 							return 1;
 						}
 						
@@ -207,11 +219,13 @@ bool first_crc_failure = true;
 		{
 			status("Failed to open '%s' for writing.", outfilename);
 			free(buffer);
+			free(outfilename);
 			return 1;
 		}
 		
 		fwrite(buffer, length, 1, fp);
 		fclose(fp);
+		free(outfilename);
 	}
 	
 	free(buffer);
@@ -221,19 +235,21 @@ bool first_crc_failure = true;
 
 static void createdir(const char *fname)
 {
-	char *dir = strdup(fname);
-	char *ptr = strchr(dir, '/');
-	if (ptr)
+	char *dir = (char*) malloc((strlen(fname) + 1) * sizeof(char));
+	for(int i=0; i<strlen(fname) + 1; i++)
 	{
-		*ptr = 0;
-		
-		#ifdef __MINGW32__
+		dir[i] = fname[i];
+		if(fname[i] == '/' && i>0)
+		{
+			dir[i] = '\0';
+			#ifdef __MINGW32__
 			mkdir(dir);
-		#else
-			mkdir(dir, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-		#endif
+			#else
+				mkdir(dir, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+			#endif
+			dir[i] = '/';
+		}
 	}
-	
 	free(dir);
 }
 

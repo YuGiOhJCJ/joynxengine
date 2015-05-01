@@ -33,7 +33,7 @@ bool load_stage(int stage_no);
 /* located in profile.cpp */
 
 //---------------------[referenced from main.cpp]--------------------//
-const char *GetProfileName(int num);
+char *GetProfileName(int num);
 
 
 /* located in settings.cpp */

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <endian.h>
 
+#include "../config.h" // for CONFIG_CURRENT_DIR
 #include "../common/basics.h"
 #include "org.h"
 #include "pxt.h"			// for loading drums
@@ -111,15 +112,30 @@ static bool load_drumtable(const char *pxt_path)		// pxt_path = the path where d
 char fname[80];
 int d;
 FILE *fp;
-static const char *drum_cache = "drum.pcm";
+char *drum_cache;
 #define DRUM_VERSION	0x0001
 uint16_t version;
 
+	// set the drum_cache variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *drum_cache_1 = getenv("HOME");
+	const char *drum_cache_2 = "/.joynxengine/drum.pcm";
+	drum_cache = (char*) malloc((strlen(drum_cache_1) + strlen(drum_cache_2) + 1) * sizeof(char));
+	sprintf(drum_cache, "%s%s", drum_cache_1, drum_cache_2);
+#else
+	const char *drum_cache_1 = "drum.pcm";
+	drum_cache = (char*) malloc((strlen(drum_cache_1) + 1) * sizeof(char));
+	sprintf(drum_cache, "%s", drum_cache_1);
+#endif
 	#ifndef DRUM_PXT
 		for(d=0;d<NUM_DRUMS;d++)
 		{
 			sprintf(fname, "./drums/%s.wav", drum_names[d]);
-			if (load_drum(fname, d)) return 1;
+			if (load_drum(fname, d))
+			{
+				free(drum_cache);
+				return 1;
+			}
 		}
 	#else
 		
@@ -143,6 +159,7 @@ uint16_t version;
 				}
 				fclose(fp);
 				stat("-- Drums loaded from cache");
+				free(drum_cache);
 				return 0;
 			}
 		}
@@ -156,7 +173,11 @@ uint16_t version;
 			if (drum_pxt[d])
 			{
 				sprintf(fname, "%sfx%02x.pxt", pxt_path, drum_pxt[d]);
-				if (load_drum_pxt(fname, d)) return 1;
+				if (load_drum_pxt(fname, d))
+				{
+					free(drum_cache);
+					return 1;
+				}
 			}
 		}
 		
@@ -180,6 +201,7 @@ uint16_t version;
 	//for(d=0;d<256;d++) { lprintf("%d ", drumtable[0].samples[d]); if (d%32==0) lprintf("\n"); }
 	//lprintf("\n");
 	
+	free(drum_cache);
 	return 0;
 }
 

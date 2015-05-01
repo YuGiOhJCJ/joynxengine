@@ -282,8 +282,21 @@ unsigned char tc;
 bool load_stages(void)
 {
 FILE *fp;
+char *stage_file;
 
-	fp = fileopen("stage.dat", "rb");
+	// set the stage_file variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *stage_file_1 = getenv("HOME");
+	const char *stage_file_2 = "/.joynxengine/stage.dat";
+	stage_file = (char*) malloc((strlen(stage_file_1) + strlen(stage_file_2) + 1) * sizeof(char));
+	sprintf(stage_file, "%s%s", stage_file_1, stage_file_2);
+#else
+	const char *stage_file_1 = "stage.dat";
+	stage_file = (char*) malloc((strlen(stage_file_1) + 1) * sizeof(char));
+	sprintf(stage_file, "%s", stage_file_1);
+#endif
+	fp = fileopen(stage_file, "rb");
+	free(stage_file);
 	if (!fp)
 	{
 		staterr("%s(%d): failed to open stage.dat", __FILE__, __LINE__);
@@ -305,11 +318,19 @@ FILE *fp;
 int i;
 
 	stat("initmapfirsttime: loading tilekey.dat.");
+#ifndef CONFIG_CURRENT_DIR
+	if (!(fp = fileopen("/usr/share/joynxengine/tilekey.dat", "rb")))
+	{
+		staterr("/usr/share/joynxengine/tilekey.dat is missing!");
+		return 1;
+	}
+#else
 	if (!(fp = fileopen("tilekey.dat", "rb")))
 	{
 		staterr("tilekey.dat is missing!");
 		return 1;
 	}
+#endif
 	
 	for(i=0;i<256;i++)
 		tilekey[i] = fgetl(fp);
@@ -413,7 +434,7 @@ static void DrawFastLeftLayered(void)
 {
 static const int layer_ys[] = { 80, 122, 145, 176, 240 };
 static const int move_spd[] = { 0,    1,   2,   4,   8 };
-int nlayers = 6;
+const int nlayers = 5;
 int y1, y2;
 int i, x;
 

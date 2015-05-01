@@ -16,4 +16,7 @@
 // do image scaling in hardware via OpenGL
 //#define CONFIG_OPENGL
 
+// use the current directory instead of "/usr/share/joynxengine" and "/home/<user>/.joynxengine"
+#define CONFIG_CURRENT_DIR
+
 #endif

@@ -4,17 +4,32 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include "config.h" // for CONFIG_CURRENT_DIR
 #include "settings.h"
 #include "replay.h"
 #include "settings.fdh"
 
-const char *setfilename = "settings.dat";
+char *setfilename;
 const uint16_t SETTINGS_VERSION = 0x1602;		// serves as both a version and magic
 
 Settings normal_settings;
 Settings replay_settings;
 Settings *settings = &normal_settings;
 
+void settings_setfilename()
+{
+	// set the setfilename variable
+#ifndef CONFIG_CURRENT_DIR
+	const char *setfilename_1 = getenv("HOME");
+	const char *setfilename_2 = "/.joynxengine/settings.dat";
+	setfilename = (char*) malloc((strlen(setfilename_1) + strlen(setfilename_2) + 1) * sizeof(char));
+	sprintf(setfilename, "%s%s", setfilename_1, setfilename_2);
+#else
+	const char *setfilename_1 = "settings.dat";
+	setfilename = (char*) malloc((strlen(setfilename_1) + 1) * sizeof(char));
+	sprintf(setfilename, "%s", setfilename_1);
+#endif
+}
 
 bool settings_load(Settings *setfile)
 {
@@ -73,12 +88,15 @@ FILE *fp;
 
 	stat("Loading settings...");
 	
+	settings_setfilename();
 	fp = fileopen(setfilename, "rb");
 	if (!fp)
 	{
 		stat("Couldn't open file %s.", setfilename);
+		free(setfilename);
 		return 1;
 	}
+	free(setfilename);
 	
 	setfile->version = 0;
 	fread(setfile, sizeof(Settings), 1, fp);
@@ -101,12 +119,15 @@ FILE *fp;
 		setfile = &normal_settings;
 	
 	stat("Writing settings...");
+	settings_setfilename();
 	fp = fileopen(setfilename, "wb");
 	if (!fp)
 	{
 		stat("Couldn't open file %s.", setfilename);
+		free(setfilename);
 		return 1;
 	}
+	free(setfilename);
 	
 	for(int i=0;i<INPUT_COUNT;i++)
 		setfile->input_mappings[i] = input_get_mapping(i);
